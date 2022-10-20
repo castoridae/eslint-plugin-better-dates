@@ -35,6 +35,7 @@ function formatSuggestion(
 function isDate(symbol: ts.Symbol, typeChecker: ts.TypeChecker): boolean {
   return (
     typeChecker.typeToString(
+      // @ts-ignore
       typeChecker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration)
     ) === 'DateConstructor'
   )
@@ -46,7 +47,6 @@ export default util.createRule<[], MessageIds>({
     type: 'suggestion',
     docs: {
       description: 'Bans mutating Date objects',
-      category: 'Best Practices',
       recommended: 'error',
     },
     messages: {
