@@ -76,7 +76,7 @@ export default util.createRule<[], MessageIds>({
             return
           }
           const dateMethodString = dateMethod.toString()
-          if (dateMethodString in methodToDateFns) {
+          if (Object.keys(methodToDateFns).includes(dateMethodString)) {
             context.report({
               node,
               data: {

@@ -15,9 +15,15 @@ ruleTester.run('ban-date-mutation', rule, {
   valid: [
     {
       code: `
-      let foo = new Date();
-      foo.getSeconds();
-    `,
+        let foo = new Date();
+        foo.getSeconds();
+      `,
+    },
+    {
+      code: `
+        let foo = new Date();
+        foo.valueOf();
+      `,
     },
     {
       code: `
